@@ -1,0 +1,15 @@
+<h1>This is <%= @restaurant.name %></h1>
+<hr>
+<ul style="list-style: none">
+  <li><strong><%= @restaurant.name %></strong></li>
+  <li><%= @restaurant.address %></li>
+  <li><%= @restaurant.phone_number %></li>
+  <li><%= @restaurant.category %></li>
+</ul>
+<hr>
+<h3>Reviews</h3>
+<% @restaurant.reviews.each do |review| %>
+  <p><%= review.rating %>/5 - <%= review.content %></p>
+<% end %>
+<%= link_to "Leave review", new_restaurant_review_path(@restaurant) %>
+<%= link_to "Back to index", restaurants_path %>
